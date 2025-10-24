@@ -20,7 +20,9 @@ class AuthService {
         role: role,
       );
       await userDocRef.set(userModel.toFirestore());
-      return userModel;
+      // Re-fetch the document to ensure we have the latest version from the server
+      final newUserDoc = await userDocRef.get();
+      return UserModel.fromFirestore(newUserDoc);
     }
     return UserModel.fromFirestore(userDoc);
   }
@@ -34,8 +36,9 @@ class AuthService {
       );
       final user = userCredential.user;
       if (user != null) {
-        final userDoc = await _firestore.collection('users').doc(user.uid).get();
-        return UserModel.fromFirestore(userDoc);
+        // After signing in, ensure the user document exists in Firestore.
+        // If it doesn't, create it. This makes the sign-in self-healing.
+        return await _createUserInFirestore(user, role: Role.customer);
       }
       return null;
     } on FirebaseAuthException {
@@ -108,8 +111,12 @@ class AuthService {
     try {
       final userDoc = await _firestore.collection('users').doc(uid).get();
       if (userDoc.exists) {
-        return Role.values.firstWhere(
-            (e) => e.toString() == 'Role.${userDoc.data()!['role']}');
+        // Use .name to get the string representation of the enum
+        final roleString = userDoc.data()!['role'] as String?;
+        if (roleString != null) {
+          // Find the role in the enum that matches the string
+          return Role.values.firstWhere((e) => e.name == roleString, orElse: () => Role.customer);
+        }
       }
       return null;
     } catch (e) {

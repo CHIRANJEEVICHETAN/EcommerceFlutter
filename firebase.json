@@ -1,7 +1,27 @@
 {
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "avy-mart",
+          "appId": "1:125410890485:android:82dbfaa12e1036adbbebbc",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "avy-mart",
+          "configurations": {
+            "android": "1:125410890485:android:82dbfaa12e1036adbbebbc",
+            "web": "1:125410890485:web:225337822e225a36bbebbc"
+          }
+        }
+      }
+    }
+  },
   "firestore": {
     "database": "(default)",
-    "location": "nam5",
+    "location": "us-central",
     "rules": "firestore.rules",
     "indexes": "firestore.indexes.json"
   }
