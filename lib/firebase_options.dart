@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '125410890485',
     projectId: 'avy-mart',
     authDomain: 'avy-mart.firebaseapp.com',
-    storageBucket: 'avy-mart.firebasestorage.app',
+    storageBucket: 'avy-mart.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     appId: '1:125410890485:android:82dbfaa12e1036adbbebbc',
     messagingSenderId: '125410890485',
     projectId: 'avy-mart',
-    storageBucket: 'avy-mart.firebasestorage.app',
+    storageBucket: 'avy-mart.appspot.com',
   );
 
 }

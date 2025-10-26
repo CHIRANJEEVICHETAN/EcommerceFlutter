@@ -1,7 +1,7 @@
 
 import 'package:avymart/features/admin/presentation/screens/admin_screen.dart';
 import 'package:avymart/features/auth/presentation/screens/phone_sign_in_screen.dart';
-import 'package:avymart/features/customer/presentation/screens/customer_screen.dart';
+import 'package:avymart/features/customer/presentation/widgets/customer_scaffold.dart';
 import 'package:avymart/features/merchant/presentation/screens/merchant_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:avymart/features/onboarding/presentation/screens/onboarding_screen.dart';
@@ -21,7 +21,6 @@ class AppRouter {
   static const String customerRoute = '/customer';
   static const String sellerRoute = '/seller';
 
-
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case initialRoute:
@@ -39,7 +38,7 @@ class AppRouter {
       case merchantRoute:
         return MaterialPageRoute(builder: (_) => const MerchantScreen());
       case customerRoute:
-        return MaterialPageRoute(builder: (_) => const CustomerScreen());
+        return MaterialPageRoute(builder: (_) => const CustomerScaffold());
       case sellerRoute:
         return MaterialPageRoute(builder: (_) => const SellerScreen());
       default:

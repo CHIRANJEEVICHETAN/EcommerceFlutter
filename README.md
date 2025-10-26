@@ -1,16 +1,57 @@
-# myapp
+# AvyMart - Online Marketplace
 
-A new Flutter project.
+AvyMart is a feature-rich online marketplace built with Flutter and Firebase. It provides a platform for sellers to list their products and for customers to browse and purchase them.
+
+## Features
+
+### Customer Features
+
+*   **Product Catalog:** Browse a wide range of products from various sellers.
+*   **Product Details:** View detailed information about each product, including price, description, and images.
+*   **Shopping Cart:** Add products to a shopping cart for later purchase.
+*   **User Authentication:** Securely sign in and sign up using phone number authentication.
+
+### Seller Features
+
+*   _(Coming Soon)_ Add and manage products.
+*   _(Coming Soon)_ Track orders and manage inventory.
+
+### Admin Features
+
+*   _(Coming Soon)_ Manage users and roles.
+*   _(Coming Soon)_ Oversee all products and orders.
+
+## Tech Stack
+
+*   **Frontend:** Flutter
+*   **Backend:** Firebase (Authentication, Firestore, Storage)
+*   **State Management:** Provider
+*   **Routing:** Custom routing with `AppRouter`
+*   **Dependency Injection:** `get_it`
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1.  **Clone the repository:**
 
-A few resources to get you started if this is your first Flutter project:
+    ```bash
+    git clone https://github.com/your-username/avymart.git
+    ```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+2.  **Set up Firebase:**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    *   Create a new Firebase project.
+    *   Add an Android and/or iOS app to your Firebase project.
+    *   Download the `google-services.json` (for Android) and/or `GoogleService-Info.plist` (for iOS) and place them in the appropriate directories.
+    *   Enable Phone Number authentication in the Firebase console.
+
+3.  **Install dependencies:**
+
+    ```bash
+    flutter pub get
+    ```
+
+4.  **Run the app:**
+
+    ```bash
+    flutter run
+    ```

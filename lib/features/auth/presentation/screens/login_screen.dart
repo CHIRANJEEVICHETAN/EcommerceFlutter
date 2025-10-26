@@ -149,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const Expanded(child: Divider()),
                   ],
                 ),
-                 const SizedBox(height: 24),
+                const SizedBox(height: 24),
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton.icon(
@@ -159,6 +159,21 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                     icon: const Icon(Icons.phone_iphone),
                     label: const Text('Sign in with Phone'),
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(color: colorScheme.outline),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 16),
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton.icon(
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, AppRouter.customerRoute, (route) => false);
+                    },
+                    icon: const Icon(Icons.person_outline),
+                    label: const Text('Continue as Guest'),
                     style: OutlinedButton.styleFrom(
                       side: BorderSide(color: colorScheme.outline),
                     ),
