@@ -34,6 +34,7 @@ class HomeScreen extends StatelessWidget {
                 final user = authService.getCurrentUser();
                 if (user != null) {
                   final role = await authService.getUserRole(user.uid);
+                  if (!context.mounted) return;
                   if (role != null) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('Your role is: $role')),
