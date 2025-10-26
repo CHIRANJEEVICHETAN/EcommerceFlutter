@@ -6,10 +6,13 @@ import 'package:avymart/core/config/dependency_injection.dart';
 import 'package:avymart/core/routes/app_router.dart';
 import 'package:avymart/core/themes/dark_theme.dart';
 import 'package:avymart/core/themes/light_theme.dart';
+import 'package:avymart/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await FirebaseAppCheck.instance.activate();
   setupServiceLocator();
   runApp(const MyApp());
